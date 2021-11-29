@@ -1,4 +1,4 @@
-package com.jc.email.consumer;
+package com.jc.email.adapters.inbound.consumer;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.BeanUtils;
@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-import com.jc.email.model.dto.EmailDto;
-import com.jc.email.model.entity.Email;
-import com.jc.email.service.EmailService;
+import com.jc.email.adapters.inbound.dto.EmailDto;
+import com.jc.email.application.domain.Email;
+import com.jc.email.application.ports.EmailServicePort;
 
 @Component
 public class EmailConsumer {
 
 	@Autowired
-	EmailService emailService;
+	EmailServicePort emailService;
 	
 	@RabbitListener(queues="${spring.rabbitmq.queue}")
 	public void listen (@Payload EmailDto emailDto) {

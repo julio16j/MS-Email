@@ -1,4 +1,4 @@
-package com.jc.email.model.dto;
+package com.jc.email.adapters.inbound.consumer;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
